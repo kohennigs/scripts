@@ -65,12 +65,10 @@ case $inputStart in
         cd $gitfolder
         git clone https://github.com/kohennigs/dotfiles.git -q
 
-        echo "$line bash setup and setting links"
+        echo "$line bash setup "
         rm -f ~/.bash_aliases
-        rm -f ~/.sqliterc
         ln -s ~/$gitfolder/dotfiles/.aliases /.bash_aliases
         ln -s ~/$gitfolder/dotfiles/.screenrc /.screenrc
-        ln -s ~/$gitfolder/dotfiles/.sqliterc /.sqliterc
         source ~/.bashrc
 
         echo "$line zsh setup"
