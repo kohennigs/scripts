@@ -1,5 +1,6 @@
 #!/bin/bash
 # FHEM
+# docker: user pi hardcoded
 
 clear
 echo "*********************************************************"
@@ -23,6 +24,7 @@ case $inputStart in
 
         # shall wie install Cups and Samsung ML1915 driver?
         read -r -p "2) Install CUPS? [Y/n]" inputCUPS
+        read -r -p "2) Install Docker? [Y/n]" inputDocker
         line="----------------------------> "
         gitfolder="koh-git"
 
@@ -117,9 +119,24 @@ case $inputStart in
                         ;;
                 *)
                         echo "OK. No CUPS"
-                        exit 1
+#                        exit 1
                         ;;
         esac
+
+        case $inputDocker in
+                [yY][eE][sS]|[yY])
+                        echo "Installing Docker"
+                        curl -fsSL https://get.docker.com -o get-docker.sh
+                        sudo sh get-docker.sh
+                        sudo usermod -aG docker pi
+                        echo "Docker installed. You shall reconnect user"
+                        ;;
+                *)
+                        echo "OK. No Docker"
+#                        exit 1
+                        ;;
+        esac
+
 
         echo "********************************"
         echo "*    YOU SHALL REBOOT!         *"
