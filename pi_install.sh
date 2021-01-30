@@ -34,7 +34,7 @@ case $inputStart in
         sudo apt-get install aptitude -y
 
         echo "$line installing tools"
-        sudo aptitude install vim screen git zsh -y
+        sudo aptitude install vim screen git zsh unattended-upgrades -y
 
         echo "$line system setup"
         # set timezome to europe / berlin
