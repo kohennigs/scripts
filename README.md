@@ -1,4 +1,5 @@
 # scripts
 home of personal scripts and funny stuff may be
 
-Blubb
+
+ 3 2 1
